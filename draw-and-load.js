@@ -4,11 +4,11 @@ function LoadAnimation(options){
 	var backgroundColor = options.backgroundColor || "#ffffff";
 	var strokeColor = options.strokeColor || "#aaaaaa";
 	var strokeWidth = (parseFloat(options.strokeWidth) || 1);
-	var className = options.className || "";
+	var selection = options.selection;
 	var randomize = options.randomize !== false;	// default as true
 	var detectInview = options.detectInview !== false;	// default as true
 
-	var elements = document.getElementsByClassName(options.className);	
+	var elements = selection;	
 	var svg = createSvgElement("svg");
 	var rects = [];
 
