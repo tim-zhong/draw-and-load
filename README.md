@@ -6,12 +6,12 @@ Add a drawing animation to your page when it's loaded.
 ## Installation
 Browser
 ```html
-<script src="loadAnimation.js"></script>
+<script src="draw-and-load.js"></script>
 ```
 ## Usage
 ```js
 var options = {};
-options.className = "load";
-var animation = new LoadAnimation(options);
+options.selection = document.getElementsByClassName("myclass");
+var animation = new DrawingAnimation(options);
 animation.go();
 ```
