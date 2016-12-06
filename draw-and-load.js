@@ -1,4 +1,4 @@
-function LoadAnimation(options){
+function DrawingAnimation(options){
 	var drawingDuration = options.drawingDuration || 300;
 	var fadingDuration = options.fadingDuration || 100;
 	var backgroundColor = options.backgroundColor || "#ffffff";
