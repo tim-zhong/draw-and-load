@@ -1,6 +1,6 @@
 # draw-and-load
 
-Add a drawing animation to your page when it's loaded.
+Add a drawing animation to your webpage when it's loaded.
 
 [Demo Here](https://github.com/tim-zhong/draw-and-load/demo/)
 ## Installation
