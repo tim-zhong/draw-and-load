@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo Page</title>
+</head>
+<body>
+<style>
+.cwidth{
+	width:1100px;
+	margin: 0 auto;
+}
+.clear{
+	clear:both;
+}
+body{
+	color:#333333;
+	margin:0;
+	font-family:sans-serif;
+}
+#header{
+	text-align:center;
+	background: #dedede;	
+	padding: 100px 0;
+}
+#header h1{
+	display: inline-block;
+	font-size:60px;
+	font-weight: 300;
+	margin: 0;
+	letter-spacing: 1px;
+}
+#footer{
+	background: #dedede;
+	padding: 20px;
+	text-align: center;
+}
+#nav{
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+	padding:10px 0;
+}
+.nav_item{
+	margin: 0 10px;
+	display: inline-block;
+}
+#content{
+	margin:30px 0 60px;
+}
+.card{
+	float:left;
+	width:22%;
+	border:1px solid #dedede;
+	box-sizing: border-box;
+	margin:20px 1.5%;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+.card_header{
+	text-align: center;
+	background: #dedede;
+	font-size:20px;
+	padding: 30px 15px;
+}
+.card_content{
+	font-size:14px;
+	padding: 30px 15px;
+}
+#reload_button{
+	margin-top:20px;
+	text-transform: uppercase;
+	border:1px solid #333333;
+	padding:10px 30px;
+	display: inline-block;
+}
+#reload_button:hover{
+	cursor: pointer;
+	background: #333333;
+	color:#ffffff;
+}
+@media screen and (max-width: 1100px){
+	.cwidth{
+		width:100%;
+	}
+}
+@media screen and (max-width: 1000px){
+	.card{
+		width:32%;
+		margin:20px 0.66%;
+	}
+}
+@media screen and (max-width: 720px){
+	.card{
+		width:48%;
+		margin:20px 1%;
+	}
+}
+@media screen and (max-width: 550px){
+	.card{
+		width:96%;
+		margin:20px 2%;
+	}
+}
+</style>
+<div id="nav">
+	<div class="cwidth">
+		<div class="nav_item draw">Home</div>
+		<div class="nav_item draw">About</div>
+		<div class="nav_item draw">Contact</div>
+	</div>
+</div>
+
+<div id="header">
+	<h1 class="draw">Demo Page</h1>
+	<br>
+	<div id="reload_button" class="draw">Reload</div>
+</div>
+
+<div id="content">
+	<div class="cwidth">
+		<div class="card draw">
+			<div class="card_header">
+				Lorem Ipsum
+			</div>
+			<div class="card_content">
+				Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta.
+			</div>
+		</div>
+		<div class="card draw">
+			<div class="card_header">
+				Lorem Ipsum
+			</div>
+			<div class="card_content">
+				Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta.
+			</div>
+		</div>
+		<div class="card draw">
+			<div class="card_header">
+				Lorem Ipsum
+			</div>
+			<div class="card_content">
+				Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta.
+			</div>
+		</div>
+		<div class="card draw">
+			<div class="card_header">
+				Lorem Ipsum
+			</div>
+			<div class="card_content">
+				Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta.
+			</div>
+		</div>
+		<div class="card draw">
+			<div class="card_header">
+				Lorem Ipsum
+			</div>
+			<div class="card_content">
+				Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta.
+			</div>
+		</div>
+		<div class="card draw">
+			<div class="card_header">
+				Lorem Ipsum
+			</div>
+			<div class="card_content">
+				Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor volutpat. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta.
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>	
+</div>
+
+<div id="footer">
+	<span class="draw">Demo Page</span>
+</div>
+
+
+<script src="../draw-and-load.js"></script>
+<script>
+	var options = {};
+	options.selection = document.getElementsByClassName("draw");
+	var animation = new DrawingAnimation(options);
+	animation.go();
+
+	document.getElementById("reload_button").addEventListener("click", function(){
+		animation.go();		
+	});
+</script>
+</body>
+</html>
+
+
+
+

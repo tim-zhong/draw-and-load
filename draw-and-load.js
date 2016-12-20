@@ -12,51 +12,59 @@ function DrawingAnimation(options){
 	var svg = createSvgElement("svg");
 	var rects = [];
 
-	svg.setAttribute("width",window.innerWidth);
-	svg.setAttribute("height",window.innerHeight);
-	svg.style.position = "fixed";
-	svg.style.background = backgroundColor;
-	svg.style.top = "0px";
-	svg.style.left = "0px";
-
 	var scrollTop = document.documentElement.scrollTop;
 	if (scrollTop < document.body.scrollTop) scrollTop = document.body.scrollTop;
 
-	for(var  i = 0; i < elements.length; i++){
-		var el = elements[i];
+	this.svgInit = function(){
+		svg = createSvgElement("svg");
+		svg.setAttribute("width",window.innerWidth);
+		svg.setAttribute("height",window.innerHeight);
+		svg.style.position = "fixed";
+		svg.style.background = backgroundColor;
+		svg.style.top = "0px";
+		svg.style.left = "0px";
+	}
 
-		var offsetTop  = el.offsetTop;
-		var y = offsetTop - scrollTop;
-		var x = el.offsetLeft;
-		var w = el.offsetWidth;
-		var h = el.offsetHeight;
-		var perimeter = (w + h) * 2;
+	this.genRects = function(){
+		for(var  i = 0; i < elements.length; i++){
+			var el = elements[i];
 
-		var rect = createSvgElement("rect");
-		rect.setAttribute("x",x);
-		rect.setAttribute("y",y);
-		rect.setAttribute("width",w);
-		rect.setAttribute("height",h);
-		rect.setAttribute("fill","none");
-		rect.setAttribute("stroke",strokeColor);
-		rect.setAttribute("stroke-width",strokeWidth);
-		rect.stepLength = perimeter / drawingDuration + Math.random() * 1500 / drawingDuration;
-		rect.curOffset = perimeter;
-		rect.style.strokeDasharray = perimeter + "px";
-		rect.style.strokeDashoffset = perimeter + "px";
+			var offsetTop  = el.offsetTop;
+			var y = offsetTop - scrollTop;
+			var x = el.offsetLeft;
+			var w = el.offsetWidth;
+			var h = el.offsetHeight;
+			var perimeter = (w + h) * 2;
 
-		rect.step = function(){
-			this.curOffset -= this.stepLength;
-			if(this.curOffset <= 0) this.curOffset = 0;
-			this.style.strokeDashoffset = this.curOffset + "px";
+			var rect = createSvgElement("rect");
+			rect.setAttribute("x",x);
+			rect.setAttribute("y",y);
+			rect.setAttribute("width",w);
+			rect.setAttribute("height",h);
+			rect.setAttribute("fill","none");
+			rect.setAttribute("stroke",strokeColor);
+			rect.setAttribute("stroke-width",strokeWidth);
+			rect.stepLength = perimeter / drawingDuration + Math.random() * 1500 / drawingDuration;
+			rect.curOffset = perimeter;
+			rect.style.strokeDasharray = perimeter + "px";
+			rect.style.strokeDashoffset = perimeter + "px";
+
+			rect.step = function(){
+				this.curOffset -= this.stepLength;
+				if(this.curOffset <= 0) this.curOffset = 0;
+				this.style.strokeDashoffset = this.curOffset + "px";
+			}
+
+			if(y + h >= 0 || !detectInview) rects.push(rect);
+			svg.appendChild(rect);
 		}
-
-		if(y + h >= 0 || !detectInview) rects.push(rect);
-		svg.appendChild(rect);
 	}
 
 	this.go = function(){
+		this.svgInit();
+		this.genRects();
 		if(rects.length == 0) return;
+		console.log(this);
 		var frameCounter = 0;
 		var intervalKey = setInterval(function(){
 			for(var i = 0; i < rects.length; i++){
@@ -81,7 +89,7 @@ function DrawingAnimation(options){
 			counter++;
 			if(counter >= fadingDuration){
 				clearInterval(intervalKey);
-				svg.style.display = "none";
+				document.body.removeChild(svg);
 			}
 		},1);
 	}
