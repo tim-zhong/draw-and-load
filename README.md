@@ -2,7 +2,7 @@
 
 Add a drawing animation to your webpage when it's loaded.
 
-[Demo Here](https://github.com/tim-zhong/draw-and-load/demo/)
+[Demo Here](https://tim-zhong.github.io/draw-and-load/demo/)
 ## Installation
 Browser
 ```html
