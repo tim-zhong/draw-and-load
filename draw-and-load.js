@@ -24,7 +24,7 @@ function DrawingAnimation(options){
 	}
 
 	this.genRects = function(){
-		scrollTop =  = document.documentElement.scrollTop;
+		scrollTop = document.documentElement.scrollTop;
 		if (scrollTop < document.body.scrollTop) scrollTop = document.body.scrollTop;
 
 		for(var  i = 0; i < elements.length; i++){
