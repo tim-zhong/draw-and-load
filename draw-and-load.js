@@ -12,9 +12,7 @@ function DrawingAnimation(options){
 	var svg = createSvgElement("svg");
 	var rects = [];
 
-	var scrollTop = document.documentElement.scrollTop;
-	if (scrollTop < document.body.scrollTop) scrollTop = document.body.scrollTop;
-
+	var scrollTop;
 	this.svgInit = function(){
 		svg = createSvgElement("svg");
 		svg.setAttribute("width",window.innerWidth);
@@ -26,6 +24,9 @@ function DrawingAnimation(options){
 	}
 
 	this.genRects = function(){
+		scrollTop =  = document.documentElement.scrollTop;
+		if (scrollTop < document.body.scrollTop) scrollTop = document.body.scrollTop;
+
 		for(var  i = 0; i < elements.length; i++){
 			var el = elements[i];
 
